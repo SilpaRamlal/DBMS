@@ -1,0 +1,37 @@
+create database db1;
+use db1;
+create table table1(name varchar(20), age int, place varchar(20));
+insert into table1 values('Silpa',30,'Kozhikode');
+insert into table1 values('Dkasha',10,'Medical College');
+insert into table1 values('Abcd',25,'Abceder');
+insert into table1 values('Ramlal',40,'Kozhikode');
+insert into table1 values('Ritvik',5,'Kovoor');
+insert into table1 values('Usha',50,'Kozhikode');
+insert into table1 values('Prabhakaran',60,'Kozhikode');
+insert into table1 values('Prasanth',30,'Medical College');
+insert into table1 values('Anu',20,'Chevayur');
+insert into table1 values('eghi',34,'eryhgft');
+select * from table1;
+select name from table1;
+select age from table1;
+select place from table1;
+select  * from table1 where place="Kozhikode";
+select * from table1 where name="Silpa";
+UPDATE table1
+SET age = 56
+WHERE name = "Silpa";
+create table tb2 like table1;
+select * from tb2;
+insert tb2 select * from table1;
+delete from tb2 where name="Silpa";
+select * from tb2 where age>30;
+alter table tb2 drop column mark;
+select * from tb2 where age<40;
+select distinct place from table1;
+select * from tb2 order by name asc;
+select * from tb2 order by age desc;
+alter table tb2 add subject varchar(20) not null;
+alter table tb2 modify contact varchar(10) null;
+alter table tb2 rename column contact to mark;
+truncate tb2;
+drop table tb2;
