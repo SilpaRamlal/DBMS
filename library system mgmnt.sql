@@ -1,0 +1,16 @@
+create database db3;
+use db3;
+create table Authors(authors_id int auto_increment primary key, name varchar(25), country varchar(30) not null);
+create table Books(book_id int auto_increment primary key, book_name varchar(200) not null, authors_id int not null,publication_year int not null,foreign key(authors_id) references Authors(authors_id));
+select * from Authors;
+select * from Books;
+select * from Users;
+select * from Loans;
+drop table users;
+drop table Loans;
+create table Users(user_id int auto_increment primary key, user_name varchar(50) not null, email varchar(50) unique not null, membership_date date not null);
+create table Loans(loan_id int auto_increment primary key, book_id int not null, user_id int not null, loan_date date not null, return_date date not null,foreign key(book_id) references Books(book_id), foreign key(user_id) references Users(user_id));
+insert into Authors values(1, 'Silpa', 'India');
+delete from Authors where authors_id=1;
+insert into Authors values(1, "M T Vasudevan Nair", "India");
+insert into Books values(1, "Randamoozham", 1, 1980);

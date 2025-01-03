@@ -1,0 +1,10 @@
+create database db7;
+use db7;
+create table Products(product_id int auto_increment primary key, product_name varchar(50) not null, price float not null, stock int not null);  
+create table Customer(customer_id int auto_increment primary key, cust_name varchar(50) not null, cust_email varchar(50) unique not null, phone varchar(50) not null);
+create table Orders(order_id int auto_increment primary key, customer_id int not null, order_date date not null, total_amount float not null, foreign key(customer_id) references Customer(customer_id));
+create table OrderDetails(order_deatail_id int auto_increment primary key, order_id int not null, product_id int not null, quantity int not null, price float not null, foreign key(order_id) references Orders(order_id), foreign key(product_id) references Products(product_id));
+select * from OrderDetails;
+select * from Products;
+select * from Customer;
+insert into Products values(1, 'Oil', 150.00, 10);

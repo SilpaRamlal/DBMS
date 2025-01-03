@@ -12,13 +12,14 @@ insert into table1 values('Prasanth',30,'Medical College');
 insert into table1 values('Anu',20,'Chevayur');
 insert into table1 values('eghi',34,'eryhgft');
 select * from table1;
+select * from table1 where exists(select age from table1 where age>20);
 select name from table1;
 select age from table1;
 select place from table1;
 select  * from table1 where place="Kozhikode";
 select * from table1 where name="Silpa";
 UPDATE table1
-SET age = 56
+SET age = 32
 WHERE name = "Silpa";
 create table tb2 like table1;
 select * from tb2;
@@ -35,3 +36,14 @@ alter table tb2 modify contact varchar(10) null;
 alter table tb2 rename column contact to mark;
 truncate tb2;
 drop table tb2;
+select * from table1 where age<>70;
+select * from table1 where age=40 and place='Kozhikode';
+select * from table1 where age between 30 and 50;
+select * from table1 where name like 'Silpa';
+select * from table1 where name like 'a%';
+select * from table1 where name like '%a';
+select * from table1 where name like '%a%';
+select * from table1 where name not like 'Silpa';
+select * from table1 where age not like 66;
+select * from table1 where place='Kozhikode' or age=40;
+select * from table1 where place='Kozhikode' and age=40;
